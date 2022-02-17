@@ -34,6 +34,12 @@ app.get("/cors", (req, res) => {
   return res.status(200).json({ cookie: corstest });
 });
 
+app.all("*", (req, res) => {
+  return res.status(404).json({
+    error: "Not found error",
+  });
+});
+
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   return res.status(statusCode).json({ err });
