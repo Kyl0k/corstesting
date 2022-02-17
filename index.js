@@ -19,6 +19,8 @@ app.listen(5000, (error) => {
 
 app.post("/sign-in", (req, res) => {
   const { password } = req.body;
+  console.log(password);
+
   if (!password) throw new Error("No password provided");
   res.cookie("corstest", password, cookieConfig(24 * 60 * 60 * 1000));
   return res.status(200).json({ message: "Signed in" });
@@ -27,10 +29,9 @@ app.post("/sign-in", (req, res) => {
 app.get("/cors", (req, res) => {
   const {
     cookies: { corstest },
-    body: { password },
   } = req;
-  if (!corstest || !password) throw new Error("No password or cookie provided");
-  return res.status(200).json({ message: "Cors allowed to enter" });
+  if (!corstest) throw new Error("No cookie provided");
+  return res.status(200).json({ cookie: corstest });
 });
 
 app.use((err, req, res, next) => {
