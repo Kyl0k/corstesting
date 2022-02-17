@@ -5,13 +5,13 @@ export const corsCofnig = {
     "http://localhost:3000/",
   ],
   credentials: true,
-  exposedHeaders: ["set-cookie"],
+  //exposedHeaders: ["set-cookie"],
   optionsSuccessStatus: 200,
 };
 
 export const cookieConfig = (expiresTime) => ({
   expires: new Date(Date.now() + expiresTime),
   httpOnly: true,
-  sameSite: "Strict",
-  // secure: true,
+  sameSite: "None",
+  secure: true,
 });
