@@ -26,6 +26,10 @@ app.post("/sign-in", async (req, res) => {
   return res.status(200).json({ message: "Signed in" });
 });
 
+app.get("/", async (req, res) => {
+  return res.send("Heroku CORS Kylok");
+});
+
 app.get("/cors", async (req, res) => {
   const {
     cookies: { corstest },
