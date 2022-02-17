@@ -17,7 +17,11 @@ app.listen(5000, (error) => {
   }
   console.log(`Listening on port 5000`);
 });
-
+app.use((req, res, next) => {
+  console.log("I am middleware");
+  console.log(req.headers);
+  next();
+});
 app.post("/sign-in", (req, res) => {
   const { password } = req.body;
   console.log(password);
