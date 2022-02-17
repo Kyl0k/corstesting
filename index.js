@@ -32,7 +32,7 @@ app.use((req, res, next) => {
   console.log(req.headers);
   next();
 });
-app.post("/sign-in", (req, res) => {
+app.post("/sign-in", async (req, res) => {
   const { password } = req.body;
   console.log(password);
 
@@ -41,7 +41,7 @@ app.post("/sign-in", (req, res) => {
   return res.status(200).json({ message: "Signed in" });
 });
 
-app.get("/cors", (req, res) => {
+app.get("/cors", async (req, res) => {
   const {
     cookies: { corstest },
   } = req;
