@@ -1,13 +1,13 @@
-import express, { response } from "express";
+import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
 import { corsCofnig, cookieConfig } from "./config/index.js";
 
 const app = express();
+app.use(cors(corsCofnig));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsCofnig));
 
 app.listen(5000, (error) => {
   if (error) {
