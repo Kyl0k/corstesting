@@ -5,7 +5,7 @@ export const corsCofnig = {
     "http://localhost:3000/",
   ],
   credentials: true,
-  //exposedHeaders: ["set-cookie"],
+  exposedHeaders: ["set-cookie"],
   optionsSuccessStatus: 200,
 };
 
