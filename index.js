@@ -2,10 +2,11 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
+import "express-async-errors";
 import { corsCofnig, cookieConfig } from "./config/index.js";
 
 const app = express();
-app.use(cors());
+app.use(cors(corsCofnig));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -41,6 +42,7 @@ app.all("*", (req, res) => {
 });
 
 app.use((err, req, res, next) => {
+  console.log(err);
   const statusCode = err.statusCode || 500;
   return res.status(statusCode).json({ err });
 });
