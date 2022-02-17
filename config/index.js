@@ -12,6 +12,6 @@ export const corsCofnig = {
 export const cookieConfig = (expiresTime) => ({
   expires: new Date(Date.now() + expiresTime),
   httpOnly: true,
-  // sameSite: "None",
+  sameSite: "Strict",
   // secure: true,
 });
