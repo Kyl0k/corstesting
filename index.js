@@ -20,12 +20,12 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.listen(5000, (error) => {
+app.listen(process.env.PORT || 5000, (error) => {
   if (error) {
     console.error(error);
     process.exit(-1);
   }
-  console.log(`Listening on port 5000`);
+  console.log(`Listening on port ${PORT}`);
 });
 app.use((req, res, next) => {
   console.log("I am middleware");
