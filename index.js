@@ -6,17 +6,7 @@ import "express-async-errors";
 import { corsCofnig, cookieConfig } from "./config/index.js";
 
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "http://localhost:3000/",
-    ],
-    credentials: true,
-    optionsSuccessStatus: 200,
-  })
-);
+app.use(cors(corsCofnig));
 app.use(express.json());
 app.use(cookieParser());
 
