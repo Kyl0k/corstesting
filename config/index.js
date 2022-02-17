@@ -1,6 +1,11 @@
 export const corsCofnig = {
-  origin: "http://localhost:3000",
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3000/",
+  ],
   credentials: true,
+  optionsSuccessStatus: 200,
 };
 
 export const cookieConfig = (expiresTime) => ({
