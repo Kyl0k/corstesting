@@ -25,7 +25,7 @@ app.listen(process.env.PORT || 5000, (error) => {
     console.error(error);
     process.exit(-1);
   }
-  console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${process.env.PORT}`);
 });
 app.use((req, res, next) => {
   console.log("I am middleware");
