@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { corsCofnig, cookieConfig } from "./config/index.js";
 
 const app = express();
-app.use(cors(corsCofnig));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
