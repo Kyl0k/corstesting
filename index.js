@@ -17,12 +17,15 @@ app.listen(process.env.PORT || 5000, (error) => {
   }
   console.log(`Listening on port ${process.env.PORT}`);
 });
-app.post("/sign-in", async (req, res) => {
+app.post("/auth/log-in", async (req, res) => {
   const { password } = req.body;
-  console.log(password);
-
   if (!password) throw new Error("No password provided");
   res.cookie("corstest", password, cookieConfig(24 * 60 * 60 * 1000));
+  return res.status(200).json({ message: "Signed in" });
+});
+
+app.delete("/auth/log-out", async (req, res) => {
+  res.cookie("corstest", undefined, cookieConfig(-24 * 60 * 60 * 1000));
   return res.status(200).json({ message: "Signed in" });
 });
 
